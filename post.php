@@ -10,9 +10,11 @@ $statement = $pdo->prepare($sql);
 $params = ['id' => $id];
 $statement->execute($params);
 $post = $statement->fetch();
+$id = $post['id'];
 $title = $post['title'];
 $body = $post['body'];
 $author = $post['author'];
+
 ?>
 
 <!DOCTYPE html>
@@ -42,6 +44,21 @@ $author = $post['author'];
             <a href="index.php"> Go Back</a>
 
         </div>
+
+        <div class="flex justify-between">
+            <form action="delete_post.php" method="post">
+                <input type="hidden" name="_method" value="delete">
+                <input type="hidden" name="id" value="<?= $id ?>">
+                <button type="submit" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-700 w-48">Delete Post</button>
+            </form>
+
+            <form action="edit_post.php" method="get">
+                <input type="hidden" name="id" value="<?= $id ?>">
+                <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-700 w-48">Edit Post</button>
+            </form>
+        </div>
+
+
 
     </div>
 

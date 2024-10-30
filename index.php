@@ -45,6 +45,11 @@ $blogs = $statement->fetchAll();
                 </a>
             </div>
         <?php endforeach; ?>
+
+        <div class="mt-6">
+            <a href="create_post.php" class="bg-blue-500 text-white px-2 py-2 rounded hover:bg-blue-600 focus:outline-none">Create a new post</a>
+
+        </div>
     </div>
 
 </body>
